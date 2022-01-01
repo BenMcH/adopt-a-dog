@@ -4,7 +4,7 @@
   "description": "",
   "license": "",
   "scripts": {
-    "build": "tailwindcss -i app/tailwind.css -o public/tailwind.css remix build",
+    "build": "tailwindcss -i app/tailwind.css -o public/tailwind.css && remix build",
     "dev": "concurrently \"remix dev\" \"tailwindcss -i app/tailwind.css -o public/tailwind.css --watch\"",
     "postinstall": "remix setup node"
   },
