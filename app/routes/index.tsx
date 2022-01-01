@@ -73,11 +73,13 @@ export default function Index() {
 
   return (
     <>
-      <h1 className="text-2xl">Dogs for Adoption in Iowa</h1>
-      <h2 className="text-xl">This site pulls from the <a className="underline underline-offset-2" href="https://www.arl-iowa.org/">ARL of Iowa</a> and <a className="underline underline-offset-2" href="https://www.aheinz57.com/">AHeinz57</a> rescue.</h2>
+      <h1 className="text-2xl">Dogs for Adoption in Central Iowa</h1>
+      <h2 className="text-xl">This site currently pulls from the <a className="underline underline-offset-2" href="https://www.arl-iowa.org/">ARL of Iowa</a> and <a className="underline underline-offset-2" href="https://www.aheinz57.com/">AHeinz57</a> rescue.</h2>
+      <p className="text-lg">There are currently {data.length} dogs looking for new homes. Click on a dog to learn more and to give them a loving home.</p>
+      <p className="text-xs">Note: this site has no affiliation with any animal shelters used as sources. The goal of this site is simply to help puppers and doggos find loving forever homes</p>
       <ul className="list-none flex flex-wrap gap-5 mt-5 justify-center">
         {data.map((link) => (
-          <li key={link.href} className="border-2 p-5">
+          <li key={link.href} className="border-2 p-5 flex flex-col w-full sm:w-64">
             <a
               target="_blank"
               href={link.href}
