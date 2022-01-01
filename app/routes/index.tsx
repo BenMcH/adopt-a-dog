@@ -75,7 +75,7 @@ export default function Index() {
     <>
       <h1 className="text-2xl">Dogs for Adoption in Iowa</h1>
       <h2 className="text-xl">This site pulls from the <a className="underline underline-offset-2" href="https://www.arl-iowa.org/">ARL of Iowa</a> and <a className="underline underline-offset-2" href="https://www.aheinz57.com/">AHeinz57</a> rescue.</h2>
-      <ul className="list-none flex flex-wrap gap-5 mt-5">
+      <ul className="list-none flex flex-wrap gap-5 mt-5 justify-center">
         {data.map((link) => (
           <li key={link.href} className="border-2 p-5">
             <a
