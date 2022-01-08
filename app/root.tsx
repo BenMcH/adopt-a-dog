@@ -24,7 +24,7 @@ export default function App() {
       </head>
       <body className="p-5">
         <Outlet />
-        <h2 className="text-xl">This site currently pulls from the <a className="underline underline-offset-2" href="https://www.arl-iowa.org/">ARL of Iowa</a> and <a className="underline underline-offset-2" href="https://www.aheinz57.com/">AHeinz57</a> rescue.</h2>
+        <h2 className="text-xl">This site currently pulls from the <a className="underline underline-offset-2" href="https://www.arl-iowa.org/">ARL of Iowa</a>, <a className="underline underline-offset-2" href="https://www.aheinz57.com/">AHeinz57</a> rescue, and <a className="underline underline-offset-2" href="http://hopeanimalrescueofiowa.org/">Hope Animal Rescue of Iowa</a>.</h2>
         <p className="text-xs">Note: this site has no affiliation with any animal shelters used as sources. The goal of this site is simply to help puppers and doggos find loving forever homes</p>
         <ScrollRestoration />
         <Scripts />

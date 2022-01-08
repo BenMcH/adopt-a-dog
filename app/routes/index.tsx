@@ -1,11 +1,13 @@
 import { Link, useLoaderData } from "remix";
 import { getArlAnimals } from "~/shelters/arl";
 import { getHeinzAnimals } from "~/shelters/heinz";
+import { getHopeAnimals } from "~/shelters/hope";
 
 export async function loader() {
   const [arlPuppers, heinzPuppers] = await Promise.all([
     getArlAnimals('dog'),
-    getHeinzAnimals('dog')
+    getHeinzAnimals('dog'),
+    getHopeAnimals('dog'),
   ]);
 
   const allPuppers = [...arlPuppers, ...heinzPuppers]
