@@ -1,4 +1,4 @@
-import Cheerio from "cheerio";
+import * as Cheerio from "cheerio";
 
 export const getArlAnimals = async (type: 'cat' | 'dog') => {
   const arlData = await fetch(`https://www.arl-iowa.org/adopt/find-a-pet/pet-list/${type}/`);
@@ -11,7 +11,7 @@ export const getArlAnimals = async (type: 'cat' | 'dog') => {
     const href = `https://www.arl-iowa.org${link.attribs.href}`;
     const innerLink = Cheerio.load(link);
 
-    let img = innerLink('img').attr('data-src');
+    let img = innerLink('img').attr('src');
     if (img?.startsWith('/')) {
       img = `https://www.arl-iowa.org${img}`;
     }

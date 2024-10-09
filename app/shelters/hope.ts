@@ -1,4 +1,4 @@
-import Cheerio from 'cheerio'
+import * as Cheerio from 'cheerio'
 
 export const getHopeAnimals = async (type: 'cat' | 'dog') => {
   const upperType = type.charAt(0).toUpperCase() + type.slice(1);
@@ -8,7 +8,7 @@ export const getHopeAnimals = async (type: 'cat' | 'dog') => {
 
   return hopeCheerio('.each_pet').toArray().map((link) => {
     const innerLink = Cheerio.load(link);
-	const href = innerLink('a').attr('href');
+    const href = innerLink('a').attr('href');
 
     let img = innerLink('img.pets').attr('src');
     const name = innerLink('img.pets').attr('alt');

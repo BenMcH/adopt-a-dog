@@ -1,17 +1,25 @@
+import { json } from '@remix-run/server-runtime';
 import { Link, useLoaderData } from '@remix-run/react';
 import { getArlAnimals } from '~/shelters/arl';
 import { getHeinzAnimals } from '~/shelters/heinz';
 import { getHopeAnimals } from '~/shelters/hope';
 
+// export const meta: MetaFunction = () => {
+//   return [
+//     { title: 'New Remix App' },
+//     { name: 'description', content: 'Welcome to Remix!' },
+//   ];
+// };
+
 export async function loader() {
-  const [arlMittens, heinzMittens, hopeMittens] = await Promise.all([
-    getArlAnimals('cat'),
-    getHeinzAnimals('cat'),
-    getHopeAnimals('cat'),
+  const [arlPuppers, heinzPuppers, hopePuppers] = await Promise.all([
+    getArlAnimals('dog'),
+    getHeinzAnimals('dog'),
+    getHopeAnimals('dog'),
   ]);
 
-  const allMittens = [...arlMittens, ...heinzMittens, ...hopeMittens];
-  return allMittens;
+  const allPuppers = [...arlPuppers, ...heinzPuppers, ...hopePuppers];
+  return json(allPuppers);
 }
 
 export const headers = () => {
@@ -20,28 +28,21 @@ export const headers = () => {
   };
 };
 
-type PetListing = {
-  href: string;
-  img: string;
-  description: string;
-  name: string;
-};
-
 export default function Index() {
-  const data = useLoaderData<PetListing[]>();
+  const data = useLoaderData<typeof loader>();
 
   return (
     <>
-      <h1 className="text-2xl">Cats for Adoption in Central Iowa</h1>
+      <h1 className="text-2xl">Dogs for Adoption in Central Iowa</h1>
       <p className="text-lg">
-        Not a cat person?{' '}
-        <Link to="/" className="underline underline-offset-2">
-          Check out these dogs instead!
+        Looking for a cat instead?{' '}
+        <Link to="/cats" className="underline underline-offset-2">
+          Meow!
         </Link>
       </p>
       <p className="text-lg">
-        There are currently {data.length} cats looking for new homes. Click on a
-        cat to learn more and to give them a loving home.
+        There are currently {data.length} dogs looking for new homes. Click on a
+        dog to learn more and to give them a loving home.
       </p>
       <ul className="list-none flex flex-wrap gap-5 mt-5 justify-center">
         {data.map((link) => (

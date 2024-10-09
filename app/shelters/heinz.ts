@@ -1,4 +1,4 @@
-import Cheerio from 'cheerio'
+import * as Cheerio from 'cheerio'
 
 export const getHeinzAnimals = async (type: 'cat' | 'dog') => {
   const heinzRequest = await fetch(`https://www.aheinz57.com/adopt-a-pet/${type}s/`);
